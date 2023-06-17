@@ -7,7 +7,7 @@ import org.openqa.selenium.support.How;
 
 public class DashboardPage {
 	WebDriver driver;
-	
+	static int counter =0;
 	public DashboardPage(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -15,7 +15,7 @@ public class DashboardPage {
 	//WebElements
 	@FindBy(how=How.CSS, using="button[onClick='myFunctionSky()']") WebElement SKY_BLUE_BUTTON_ELEM;
 	@FindBy(how=How.CSS, using="button[onClick='myFunctionWhite()']") WebElement SKY_WHITE_BUTTON_ELEM;
-
+	@FindBy(how=How.CSS, using="body") WebElement body;
 	//interactable methods
 	public void clickOnSkyBlueButtonElement() {
 		SKY_BLUE_BUTTON_ELEM.click();
@@ -31,5 +31,16 @@ public class DashboardPage {
 	
 	public boolean validateWhiteButton() {
 		return SKY_WHITE_BUTTON_ELEM.isDisplayed();
+	}
+	
+	public String bodyBackgroundColor() {
+		
+		return body.getCssValue("background-color");
+	}
+	public int getCounter() {
+		return counter;
+	}
+	public void setCounter(int times) {
+		counter = counter + times;
 	}
 }

@@ -24,10 +24,10 @@ public class DashboardStepDefinition extends TestBase{
 	public void button_exists(String button_type) {
 		if(button_type.equalsIgnoreCase("Set SkyBlue Background")) {
 			Assert.assertTrue(dashboardPage.validateBlueButton());
-			dashboardPage.clickOnSkyBlueButtonElement();
+			
 		} else if(button_type.equalsIgnoreCase("Set White Background")) {
 			Assert.assertTrue(dashboardPage.validateWhiteButton());
-			dashboardPage.clickOnSkyWhiteButtonElement();
+			
 		}else {
 			System.out.println("Sorry please check the string" + button_type);
 		}
@@ -35,6 +35,13 @@ public class DashboardStepDefinition extends TestBase{
 	}
 	@When("I click on the button")
 	public void i_click_on_the_button() {
+		
+		if(dashboardPage.getCounter() == 0) {
+			dashboardPage.clickOnSkyBlueButtonElement();
+			dashboardPage.setCounter(1);
+		}else {
+			dashboardPage.clickOnSkyWhiteButtonElement();
+		}
 		
 	}
 	@Then("the background color will change to sky blue")
