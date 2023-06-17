@@ -46,12 +46,17 @@ public class DashboardStepDefinition extends TestBase{
 	}
 	@Then("the background color will change to sky blue")
 	public void the_background_color_will_change_to_sky_blue() {
+
+	    Assert.assertTrue(dashboardPage.bodyBackgroundColor().equalsIgnoreCase("background-color: skyblue;"));	
+	    System.out.println("color: " + dashboardPage.bodyBackgroundColor());
 	    
 	}
 
 	@Then("the background color will change to white")
 	public void the_background_color_will_change_to_white() {
-	    
+	Assert.assertTrue(dashboardPage.bodyBackgroundColor().equalsIgnoreCase("background-color: white;"));	
+	System.out.println("color: " + dashboardPage.bodyBackgroundColor());
+    
 	}
 
 	

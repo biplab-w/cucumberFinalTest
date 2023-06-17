@@ -34,13 +34,18 @@ public class DashboardPage {
 	}
 	
 	public String bodyBackgroundColor() {
-		
-		return body.getCssValue("background-color");
+		return body.getAttribute("style");
+//		return body.getCssValue("background-color");
 	}
+	
+	
+	
 	public int getCounter() {
 		return counter;
 	}
 	public void setCounter(int times) {
 		counter = counter + times;
 	}
+	
+	
 }
