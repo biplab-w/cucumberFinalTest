@@ -3,6 +3,7 @@ package steps;
 import org.junit.Assert;
 import org.openqa.selenium.support.PageFactory;
 
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -59,5 +60,9 @@ public class DashboardStepDefinition extends TestBase{
     
 	}
 
+	@After
+	public void closeBrowsers() {
+		tearDown();
+	}
 	
 }
